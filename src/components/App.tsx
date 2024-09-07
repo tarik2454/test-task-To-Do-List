@@ -1,18 +1,19 @@
 import { Button, Slider } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import FaceRetouchingNaturalIcon from '@mui/icons-material/FaceRetouchingNatural';
+
 import { useThemeContext } from '../providers/ThemeContextProvider';
+import styled from 'styled-components';
 
 const ThemedButton = styled(Button)(({ theme }) => ({
   backgroundColor: theme.status.danger,
   color: 'white',
+  padding: '10px 14px',
+  fontWeight: 600,
 }));
 
-// Используйте styled-components для простых стилей
 const StyledButton = styled(Button)`
   color: white;
   background-color: blue;
-  // Other style properties...
 `;
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
   return (
     <>
       <div>
+        <h1>Привет, мир!</h1>
         <h1>{currentTheme === 'light' ? 'Светлая тема' : 'Тёмная тема'}</h1>
         <Button onClick={toggleTheme} variant="contained">
           Переключить тему

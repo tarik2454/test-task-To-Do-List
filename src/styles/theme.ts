@@ -1,20 +1,6 @@
 import { createTheme, PaletteMode, ThemeOptions } from '@mui/material';
 import { orange } from '@mui/material/colors';
 
-declare module '@mui/material/styles' {
-  interface Theme {
-    status: {
-      danger: string;
-    };
-  }
-
-  interface ThemeOptions {
-    status?: {
-      danger?: string;
-    };
-  }
-}
-
 const baseTheme: ThemeOptions = {
   palette: {
     mode: 'light' as PaletteMode,
@@ -47,5 +33,5 @@ const darkTheme: ThemeOptions = {
 
 export const getTheme = (mode: 'light' | 'dark' = 'light') =>
   createTheme({
-    ...((mode === 'light' ? baseTheme : darkTheme) as ThemeOptions),
+    ...(mode === 'light' ? baseTheme : darkTheme),
   });

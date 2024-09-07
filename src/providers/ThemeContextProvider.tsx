@@ -5,8 +5,9 @@ import React, {
   useState,
   useEffect,
 } from 'react';
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import { CssBaseline } from '@mui/material';
 import { getTheme } from '../styles/theme';
+import { ThemeProvider } from 'styled-components';
 
 interface ThemeContextProps {
   toggleTheme: () => void;
