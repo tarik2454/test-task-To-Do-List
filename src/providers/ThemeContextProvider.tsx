@@ -5,7 +5,6 @@ import React, {
   useState,
   useEffect,
 } from 'react';
-import { CssBaseline } from '@mui/material';
 import { getTheme } from '../styles/theme';
 import { ThemeProvider } from 'styled-components';
 
@@ -37,10 +36,7 @@ export const ThemeContextProvider = ({
 
   return (
     <ThemeContext.Provider value={{ toggleTheme, currentTheme: themeMode }}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {children}
-      </ThemeProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   );
 };

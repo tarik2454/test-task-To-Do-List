@@ -26,12 +26,9 @@ const darkTheme: ThemeOptions = {
       default: '#121212',
     },
   },
-  status: {
-    danger: orange[500],
-  },
 };
 
 export const getTheme = (mode: 'light' | 'dark' = 'light') =>
   createTheme({
-    ...(mode === 'light' ? baseTheme : darkTheme),
+    ...(mode === 'light' ? baseTheme : { ...baseTheme, ...darkTheme }),
   });
