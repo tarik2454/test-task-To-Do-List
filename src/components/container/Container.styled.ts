@@ -12,8 +12,8 @@ export const ContainerS = styled(Container)`
     padding: 0 32px;
   }
 
-  @media screen and (min-width: 1440px) {
+  /* @media screen and (min-width: 1440px) {
     min-width: 1440px;
     padding: 0 80px;
-  }
+  } */
 `;

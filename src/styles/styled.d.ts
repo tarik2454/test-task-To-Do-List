@@ -32,9 +32,6 @@ declare module '@mui/material/styles' {
       main: string;
       light: string;
     };
-    status: {
-      danger: string;
-    };
   }
   // allow configuration using `createTheme`
   interface ThemeOptions {
@@ -45,9 +42,6 @@ declare module '@mui/material/styles' {
     text?: {
       main?: string;
       light?: string;
-    };
-    status?: {
-      danger?: string;
     };
   }
 }
