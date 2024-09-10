@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Typography } from '@mui/material';
-import SwitchTheme from '../switchTheme/SwitchTheme';
+import Switch from '../switch/Switch';
 import Container from '../container/Container';
 import styled from 'styled-components';
 
@@ -26,7 +26,7 @@ export default function Header() {
         <StyledToolbar>
           <StyledTypography variant="h1">Todo List</StyledTypography>
 
-          <SwitchTheme />
+          <Switch />
         </StyledToolbar>
       </Container>
     </StyledAppBar>
