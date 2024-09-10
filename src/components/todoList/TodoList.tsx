@@ -1,9 +1,11 @@
 import { useTasks, useCreateTask } from '../../api/todo-api';
-import { TextField, List } from '@mui/material';
+import { TextField } from '@mui/material';
 import { Formik, Field, FieldProps } from 'formik';
 import * as Yup from 'yup';
 import ListItem from '../listItem/ListItem';
 import { StyledButton, StyledForm } from './TodoList.styled';
+import Paginate from '../paginate/Paginate';
+import Loader from '../loader/Loader';
 
 interface Task {
   id: string;
@@ -19,7 +21,11 @@ export default function TodoList() {
   const { data: tasks = [], isLoading } = useTasks();
   const createTask = useCreateTask();
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  const reversedTasks = [...tasks].reverse();
 
   return (
     <>
@@ -27,8 +33,14 @@ export default function TodoList() {
         initialValues={{ title: '' }}
         validationSchema={TaskSchema}
         onSubmit={(values, { resetForm }) => {
-          createTask.mutate({ title: values.title, completed: false });
-          resetForm();
+          createTask.mutate(
+            { title: values.title, completed: false },
+            {
+              onSuccess: () => {
+                resetForm();
+              },
+            }
+          );
         }}
       >
         {() => (
@@ -50,11 +62,11 @@ export default function TodoList() {
         )}
       </Formik>
 
-      <List>
-        {tasks.map((task: Task) => (
-          <ListItem task={task} />
-        ))}
-      </List>
+      <Paginate
+        itemsPerPage={6}
+        array={reversedTasks}
+        renderItem={(task: Task) => <ListItem key={task.id} task={task} />}
+      />
     </>
   );
 }

@@ -33,7 +33,7 @@ declare module '@mui/material/styles' {
       light: string;
     };
   }
-  // allow configuration using `createTheme`
+
   interface ThemeOptions {
     bg?: {
       main?: string;
