@@ -1,7 +1,8 @@
 import { AppBar, Toolbar, Typography } from '@mui/material';
-import SwitchTheme from '../switchTheme/SwitchTheme';
+
 import styled from 'styled-components';
 import Container from '../container/Container';
+import SwitchTheme from '../switchTheme/SwitchTheme';
 
 const StyledAppBar = styled(AppBar)`
   background-color: #1976d2;
