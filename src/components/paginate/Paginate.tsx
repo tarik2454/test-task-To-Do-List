@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyledPagination, PaginationContainer } from './Paginate.styles';
+import { StyledPagination, PaginationContainer } from './Paginate.styled';
 
 interface PaginateProps<T> {
   itemsPerPage: number;
