@@ -19,8 +19,9 @@ interface Task {
   completed: boolean;
 }
 
-const StyledTextField = styled(TextField)`
+const StyledTextField = styled(TextField)<{ completed: boolean }>`
   width: 100%;
+  text-decoration: ${({ completed }) => (completed ? 'line-through' : 'none')};
 `;
 
 const StyledMuiListItem = styled(MuiListItem)`
@@ -76,8 +77,10 @@ export default function TaskListItem({ task }: { task: Task }) {
               onChange={handleChange}
               onBlur={handleBlur}
               variant="outlined"
+              completed={completed}
+              disabled={completed}
               InputProps={{
-                endAdornment: (
+                endAdornment: !completed && (
                   <Tooltip title="save" arrow>
                     <StyledIconButton
                       onClick={handleBlur}
